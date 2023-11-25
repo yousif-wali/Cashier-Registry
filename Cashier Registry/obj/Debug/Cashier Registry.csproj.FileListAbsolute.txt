@@ -1,0 +1,10 @@
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.csproj.AssemblyReference.cache
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier_Registry.MainPage.resources
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier_Registry.Properties.Resources.resources
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.csproj.GenerateResource.cache
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.csproj.CoreCompileInputs.cache
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Cashier Registry.exe.config
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Cashier Registry.exe
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Cashier Registry.pdb
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.exe
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.pdb
