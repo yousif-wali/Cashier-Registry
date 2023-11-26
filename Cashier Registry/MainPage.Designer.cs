@@ -34,7 +34,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.clear = new System.Windows.Forms.Button();
             this.numberZero = new System.Windows.Forms.Button();
-            this.dot = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
             this.numberNine = new System.Windows.Forms.Button();
             this.numberEight = new System.Windows.Forms.Button();
             this.numberSeven = new System.Windows.Forms.Button();
@@ -44,6 +44,7 @@
             this.numberThree = new System.Windows.Forms.Button();
             this.numberTwo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Search = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,23 +56,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Add = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.Cash = new System.Windows.Forms.Button();
-            this.Edit = new System.Windows.Forms.Button();
+            this.Timer = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.Print = new System.Windows.Forms.Button();
-            this.Search = new System.Windows.Forms.Button();
-            this.Timer = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.Cash = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Edit = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // output
@@ -94,12 +94,13 @@
             this.numberOne.TabIndex = 1;
             this.numberOne.Text = "1";
             this.numberOne.UseVisualStyleBackColor = true;
+            this.numberOne.Click += new System.EventHandler(this.numberOne_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.clear);
             this.groupBox1.Controls.Add(this.numberZero);
-            this.groupBox1.Controls.Add(this.dot);
+            this.groupBox1.Controls.Add(this.back);
             this.groupBox1.Controls.Add(this.numberNine);
             this.groupBox1.Controls.Add(this.numberEight);
             this.groupBox1.Controls.Add(this.numberSeven);
@@ -126,6 +127,7 @@
             this.clear.TabIndex = 8;
             this.clear.Text = "C";
             this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
             // numberZero
             // 
@@ -136,16 +138,18 @@
             this.numberZero.TabIndex = 4;
             this.numberZero.Text = "0";
             this.numberZero.UseVisualStyleBackColor = true;
+            this.numberZero.Click += new System.EventHandler(this.numberZero_Click);
             // 
-            // dot
+            // back
             // 
-            this.dot.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.dot.Location = new System.Drawing.Point(10, 197);
-            this.dot.Name = "dot";
-            this.dot.Size = new System.Drawing.Size(65, 50);
-            this.dot.TabIndex = 4;
-            this.dot.Text = ".";
-            this.dot.UseVisualStyleBackColor = true;
+            this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.back.Location = new System.Drawing.Point(10, 197);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(65, 50);
+            this.back.TabIndex = 4;
+            this.back.Text = "Back";
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
             // numberNine
             // 
@@ -156,6 +160,7 @@
             this.numberNine.TabIndex = 7;
             this.numberNine.Text = "9";
             this.numberNine.UseVisualStyleBackColor = true;
+            this.numberNine.Click += new System.EventHandler(this.numberNine_Click);
             // 
             // numberEight
             // 
@@ -166,6 +171,7 @@
             this.numberEight.TabIndex = 6;
             this.numberEight.Text = "8";
             this.numberEight.UseVisualStyleBackColor = true;
+            this.numberEight.Click += new System.EventHandler(this.numberEight_Click);
             // 
             // numberSeven
             // 
@@ -176,6 +182,7 @@
             this.numberSeven.TabIndex = 3;
             this.numberSeven.Text = "7";
             this.numberSeven.UseVisualStyleBackColor = true;
+            this.numberSeven.Click += new System.EventHandler(this.numberSeven_Click);
             // 
             // numberSix
             // 
@@ -186,6 +193,7 @@
             this.numberSix.TabIndex = 5;
             this.numberSix.Text = "6";
             this.numberSix.UseVisualStyleBackColor = true;
+            this.numberSix.Click += new System.EventHandler(this.numberSix_Click);
             // 
             // numberFive
             // 
@@ -196,6 +204,7 @@
             this.numberFive.TabIndex = 3;
             this.numberFive.Text = "5";
             this.numberFive.UseVisualStyleBackColor = true;
+            this.numberFive.Click += new System.EventHandler(this.numberFive_Click);
             // 
             // numberFour
             // 
@@ -206,6 +215,7 @@
             this.numberFour.TabIndex = 3;
             this.numberFour.Text = "4";
             this.numberFour.UseVisualStyleBackColor = true;
+            this.numberFour.Click += new System.EventHandler(this.numberFour_Click);
             // 
             // numberThree
             // 
@@ -227,6 +237,7 @@
             this.numberTwo.TabIndex = 3;
             this.numberTwo.Text = "2";
             this.numberTwo.UseVisualStyleBackColor = true;
+            this.numberTwo.Click += new System.EventHandler(this.numberTwo_Click);
             // 
             // groupBox2
             // 
@@ -248,6 +259,16 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Item Data";
+            // 
+            // Search
+            // 
+            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search.Location = new System.Drawing.Point(60, 212);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(121, 50);
+            this.Search.TabIndex = 10;
+            this.Search.Text = "Search";
+            this.Search.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -305,6 +326,7 @@
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(129, 22);
             this.Amount.TabIndex = 4;
+            this.Amount.Enter += new System.EventHandler(this.Amount_Click);
             // 
             // Price
             // 
@@ -317,8 +339,10 @@
             // 
             // Names
             // 
+            this.Names.Enabled = false;
             this.Names.Location = new System.Drawing.Point(88, 49);
             this.Names.Name = "Names";
+            this.Names.ReadOnly = true;
             this.Names.Size = new System.Drawing.Size(129, 22);
             this.Names.TabIndex = 2;
             this.Names.TextChanged += new System.EventHandler(this.Name_TextChanged);
@@ -339,6 +363,7 @@
             this.Id.Name = "Id";
             this.Id.Size = new System.Drawing.Size(129, 22);
             this.Id.TabIndex = 0;
+            this.Id.Enter += new System.EventHandler(this.Id_Click);
             // 
             // groupBox3
             // 
@@ -354,69 +379,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Functions";
             // 
-            // Add
+            // Timer
             // 
-            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add.Location = new System.Drawing.Point(15, 21);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(100, 50);
-            this.Add.TabIndex = 0;
-            this.Add.Text = "Add";
-            this.Add.UseVisualStyleBackColor = true;
-            // 
-            // Delete
-            // 
-            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Delete.Location = new System.Drawing.Point(15, 110);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(100, 50);
-            this.Delete.TabIndex = 1;
-            this.Delete.Text = "Delete";
-            this.Delete.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.Edit);
-            this.groupBox4.Controls.Add(this.Add);
-            this.groupBox4.Controls.Add(this.Delete);
-            this.groupBox4.Location = new System.Drawing.Point(63, 45);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox4.Size = new System.Drawing.Size(231, 178);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Alter";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.Cash);
-            this.groupBox5.Location = new System.Drawing.Point(509, 155);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox5.Size = new System.Drawing.Size(116, 93);
-            this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Payment";
-            // 
-            // Cash
-            // 
-            this.Cash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cash.Location = new System.Drawing.Point(17, 25);
-            this.Cash.Name = "Cash";
-            this.Cash.Size = new System.Drawing.Size(84, 50);
-            this.Cash.TabIndex = 2;
-            this.Cash.Text = "Cash";
-            this.Cash.UseVisualStyleBackColor = true;
-            // 
-            // Edit
-            // 
-            this.Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Edit.Location = new System.Drawing.Point(121, 21);
-            this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(104, 50);
-            this.Edit.TabIndex = 2;
-            this.Edit.Text = "Edit";
-            this.Edit.UseVisualStyleBackColor = true;
+            this.Timer.AutoSize = true;
+            this.Timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Timer.Location = new System.Drawing.Point(6, 251);
+            this.Timer.Name = "Timer";
+            this.Timer.Size = new System.Drawing.Size(0, 20);
+            this.Timer.TabIndex = 6;
             // 
             // groupBox6
             // 
@@ -439,24 +409,69 @@
             this.Print.Text = "Print";
             this.Print.UseVisualStyleBackColor = true;
             // 
-            // Search
+            // groupBox5
             // 
-            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.Location = new System.Drawing.Point(60, 212);
-            this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(121, 50);
-            this.Search.TabIndex = 10;
-            this.Search.Text = "Search";
-            this.Search.UseVisualStyleBackColor = true;
+            this.groupBox5.Controls.Add(this.Cash);
+            this.groupBox5.Location = new System.Drawing.Point(509, 155);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox5.Size = new System.Drawing.Size(116, 93);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Payment";
             // 
-            // Timer
+            // Cash
             // 
-            this.Timer.AutoSize = true;
-            this.Timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Timer.Location = new System.Drawing.Point(6, 251);
-            this.Timer.Name = "Timer";
-            this.Timer.Size = new System.Drawing.Size(0, 20);
-            this.Timer.TabIndex = 6;
+            this.Cash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cash.Location = new System.Drawing.Point(17, 25);
+            this.Cash.Name = "Cash";
+            this.Cash.Size = new System.Drawing.Size(84, 50);
+            this.Cash.TabIndex = 2;
+            this.Cash.Text = "Cash";
+            this.Cash.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.Edit);
+            this.groupBox4.Controls.Add(this.Add);
+            this.groupBox4.Controls.Add(this.Delete);
+            this.groupBox4.Location = new System.Drawing.Point(63, 45);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox4.Size = new System.Drawing.Size(231, 178);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Alter";
+            // 
+            // Edit
+            // 
+            this.Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Edit.Location = new System.Drawing.Point(121, 21);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(104, 50);
+            this.Edit.TabIndex = 2;
+            this.Edit.Text = "Edit";
+            this.Edit.UseVisualStyleBackColor = true;
+            // 
+            // Add
+            // 
+            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add.Location = new System.Drawing.Point(15, 21);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(100, 50);
+            this.Add.TabIndex = 0;
+            this.Add.Text = "Add";
+            this.Add.UseVisualStyleBackColor = true;
+            // 
+            // Delete
+            // 
+            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete.Location = new System.Drawing.Point(15, 110);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(100, 50);
+            this.Delete.TabIndex = 1;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = true;
             // 
             // timer1
             // 
@@ -482,9 +497,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,7 +520,7 @@
         private System.Windows.Forms.Button numberFour;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button numberZero;
-        private System.Windows.Forms.Button dot;
+        private System.Windows.Forms.Button back;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label Total;
         private System.Windows.Forms.TextBox Amount;
