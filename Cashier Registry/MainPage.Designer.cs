@@ -62,10 +62,12 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.Cash = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.Edit = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Remove = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.payment = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,7 +79,7 @@
             // output
             // 
             this.output.Enabled = false;
-            this.output.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.output.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.output.Location = new System.Drawing.Point(1, -2);
             this.output.Multiline = true;
             this.output.Name = "output";
@@ -269,6 +271,7 @@
             this.Search.TabIndex = 10;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // label5
             // 
@@ -314,9 +317,11 @@
             // 
             this.Total.AutoSize = true;
             this.Total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Total.Location = new System.Drawing.Point(165, 139);
+            this.Total.Location = new System.Drawing.Point(88, 139);
+            this.Total.MaximumSize = new System.Drawing.Size(130, 0);
+            this.Total.MinimumSize = new System.Drawing.Size(130, 0);
             this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(44, 20);
+            this.Total.Size = new System.Drawing.Size(130, 20);
             this.Total.TabIndex = 5;
             this.Total.Text = "$0.0";
             // 
@@ -326,6 +331,7 @@
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(129, 22);
             this.Amount.TabIndex = 4;
+            this.Amount.TextChanged += new System.EventHandler(this.Amount_TextChanged);
             this.Amount.Enter += new System.EventHandler(this.Amount_Click);
             // 
             // Price
@@ -408,6 +414,7 @@
             this.Print.TabIndex = 6;
             this.Print.Text = "Print";
             this.Print.UseVisualStyleBackColor = true;
+            this.Print.Click += new System.EventHandler(this.Print_Click);
             // 
             // groupBox5
             // 
@@ -429,10 +436,11 @@
             this.Cash.TabIndex = 2;
             this.Cash.Text = "Cash";
             this.Cash.UseVisualStyleBackColor = true;
+            this.Cash.Click += new System.EventHandler(this.Cash_Click);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.Edit);
+            this.groupBox4.Controls.Add(this.Remove);
             this.groupBox4.Controls.Add(this.Add);
             this.groupBox4.Controls.Add(this.Delete);
             this.groupBox4.Location = new System.Drawing.Point(63, 45);
@@ -443,16 +451,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Alter";
             // 
-            // Edit
-            // 
-            this.Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Edit.Location = new System.Drawing.Point(121, 21);
-            this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(104, 50);
-            this.Edit.TabIndex = 2;
-            this.Edit.Text = "Edit";
-            this.Edit.UseVisualStyleBackColor = true;
-            // 
             // Add
             // 
             this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -462,6 +460,7 @@
             this.Add.TabIndex = 0;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Delete
             // 
@@ -472,6 +471,7 @@
             this.Delete.TabIndex = 1;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // timer1
             // 
@@ -479,15 +479,51 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
+            // Remove
+            // 
+            this.Remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Remove.Location = new System.Drawing.Point(121, 110);
+            this.Remove.Name = "Remove";
+            this.Remove.Size = new System.Drawing.Size(104, 50);
+            this.Remove.TabIndex = 3;
+            this.Remove.Text = "Remove";
+            this.Remove.UseVisualStyleBackColor = true;
+            this.Remove.Click += new System.EventHandler(this.Remove_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(448, 257);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 20);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Total";
+            // 
+            // payment
+            // 
+            this.payment.AutoSize = true;
+            this.payment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payment.Location = new System.Drawing.Point(505, 257);
+            this.payment.MaximumSize = new System.Drawing.Size(250, 0);
+            this.payment.MinimumSize = new System.Drawing.Size(250, 0);
+            this.payment.Name = "payment";
+            this.payment.Size = new System.Drawing.Size(250, 20);
+            this.payment.TabIndex = 11;
+            this.payment.Text = "$0.0";
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1019, 586);
+            this.Controls.Add(this.payment);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.output);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cashier Registry";
@@ -540,10 +576,12 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button Print;
-        private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Button Search;
         private System.Windows.Forms.Label Timer;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button Remove;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label payment;
     }
 }
 

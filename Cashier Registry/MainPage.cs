@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace Cashier_Registry
 {
@@ -18,6 +13,7 @@ namespace Cashier_Registry
             InitializeComponent();
         }
         private Control focousedControl;
+        private Bitmap printBitmap;
         private void Name_TextChanged(object sender, EventArgs e)
         {
 
@@ -53,7 +49,7 @@ namespace Cashier_Registry
             }
             catch
             {
-                MessageBox.Show("Something unexpected happened!");
+                ThrowError();
             }
         }
         void Back()
@@ -76,10 +72,14 @@ namespace Cashier_Registry
                 {
                     MessageBox.Show("Please Select an Input");
                 }
+                if(Id.Text.Length > 0 && focousedControl == Amount)
+                {
+                    Amount.Text = "1";
+                }
             }
             catch
             {
-                MessageBox.Show("Something unexpected happened");
+                ThrowError();
             }
 
         }
@@ -163,7 +163,219 @@ namespace Cashier_Registry
             }
             catch
             {
-                MessageBox.Show("Something unexpected happened");
+                ThrowError();
+            }
+        }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+            UpdateInformation();
+        }
+        private async void UpdateInformation()
+        {
+            var data = await Database.GetData(Id.Text);
+            if(data != null)
+            {
+                Id.Text = data.Id.ToString();
+                Names.Text = data.Name.ToString();
+                Price.Text = data.Price.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Sorry we do not have this item");
+            }
+        }
+
+        private void Amount_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(Id.Text == "")
+                {
+                    Amount.Text = "";
+                    return;
+                }
+                else
+                {
+                    Total.Text = $"${Convert.ToDouble(Price.Text) * Convert.ToInt32(Amount.Text)}";
+                }
+            }
+            catch
+            {
+                ThrowError();
+            }
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Amount.Text == "" || Id.Text == "" || Amount.Text == "0" || Id.Text == "0")
+                {
+                    MessageBox.Show("Cannot Add Item With Undefined Amount");
+                    return;
+                }
+                else
+                {
+                    Item item = new Item
+                    {
+                        Id = Convert.ToInt32(Id.Text),
+                        Name = Names.Text,
+                        Price = Convert.ToDouble(Price.Text) * Convert.ToDouble(Amount.Text),
+                        Amount = Convert.ToDouble(Amount.Text)
+                    };
+                    Registration.Add(item);
+                    EmptyInputs();
+                    UpdateOutput();
+                }
+            }
+            catch
+            {
+                ThrowError();
+            }
+
+        }
+        void EmptyInputs()
+        {
+            Id.Text = string.Empty;
+            Names.Text = string.Empty;
+            Price.Text = string.Empty;
+            Amount.Text = string.Empty;
+            Total.Text = "$0.0";
+        }
+        void UpdateOutput()
+        {
+            output.Text = string.Empty;
+            List<Item> list = Registration.getList();
+            
+            double total = 0.0;
+            foreach (Item item in list)
+            {
+                output.Text += FormatField(item.Name, 22);
+                output.Text += FormatField(item.Amount.ToString(), 22);
+                output.Text += FormatField("$" + item.Price.ToString(), 22);
+                total += Math.Round((item.Price * 0.07) + item.Price, 2);
+
+                output.Text += Environment.NewLine;
+            }
+            payment.Text = "$" + total;
+        }
+        string FormatField(string value, int width)
+        {
+            int dotsCount = Math.Max(0, width - value.Length);
+            return value.PadRight(width, '.') + new string('.', dotsCount);
+        }
+        void ThrowError()
+        {
+            MessageBox.Show("Something Unexpected Happened");
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Item item = new Item
+                {
+                    Id = Convert.ToInt32(Id.Text),
+                    Name = Names.Text,
+                    Price = Convert.ToDouble(Price.Text) * Convert.ToDouble(Amount.Text),
+                    Amount = Convert.ToDouble(Amount.Text)
+                };
+                Registration.RemoveItem(item);
+                UpdateOutput();
+            }
+            catch
+            {
+                ThrowError();
+            }
+
+        }
+
+        private void Remove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Item item = new Item
+                {
+                    Id = Convert.ToInt32(Id.Text),
+                    Name = Names.Text,
+                    Price = Convert.ToDouble(Price.Text) * Convert.ToDouble(Amount.Text),
+                    Amount = Convert.ToDouble(Amount.Text)
+                };
+                Registration.DecreaseItem(item);
+                UpdateOutput();
+            }
+            catch
+            {
+                ThrowError() ;
+            }
+        }
+
+        private void Print_Click(object sender, EventArgs e)
+        {
+            PrintFunctionality();
+        }
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            float yPos = 0;
+            float leftMargin = e.MarginBounds.Left;
+            float topMargin = e.MarginBounds.Top;
+
+            Font printFont = new Font("Arial", 12);
+
+            e.Graphics.DrawString("Name", printFont, Brushes.Black, leftMargin, yPos + topMargin);
+            e.Graphics.DrawString("Price", printFont, Brushes.Black, leftMargin + 400, yPos + topMargin);
+            e.Graphics.DrawString("Amount", printFont, Brushes.Black, leftMargin + 500, yPos + topMargin);
+
+            yPos += printFont.GetHeight();
+            yPos += printFont.GetHeight();
+
+            List<Item> itemList = Registration.getList();
+            double total = 0.0;
+            foreach (Item item in itemList)
+            {
+                e.Graphics.DrawString(item.Name, printFont, Brushes.Black, leftMargin, yPos + topMargin);
+                e.Graphics.DrawString(item.Price.ToString("C"), printFont, Brushes.Black, leftMargin + 400, yPos + topMargin);
+                e.Graphics.DrawString(item.Amount.ToString(), printFont, Brushes.Black, leftMargin + 500, yPos + topMargin);
+                total += Math.Round((item.Price * 0.07) + item.Price, 2);
+                yPos += printFont.GetHeight();
+            }
+            yPos += printFont.GetHeight();
+            e.Graphics.DrawString("Total: $" + total, printFont, Brushes.Black, leftMargin + 400, yPos + topMargin);
+            yPos += printFont.GetHeight();
+            yPos += printFont.GetHeight();
+            e.Graphics.DrawString("Note: the total amount is the subtotal plus 7% tax included.", printFont, Brushes.Black, leftMargin, yPos + topMargin);
+        }
+        private Bitmap CaptureForm()
+        {
+            Bitmap bitmap = new Bitmap(this.Width, this.Height);
+            this.DrawToBitmap(bitmap, new Rectangle(0, 0, this.Width, this.Height));
+            return bitmap;
+        }
+
+        private void Cash_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want a receipt?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                PrintFunctionality();
+            }
+            Registration.Payment();
+            UpdateOutput();
+        }
+        void PrintFunctionality()
+        {
+            PrintDialog printDialog = new PrintDialog();
+            PrintDocument printDocument = new PrintDocument();
+            printDialog.Document = printDocument;
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
+                using (Bitmap formBitmap = CaptureForm())
+                {
+                    printBitmap = new Bitmap(formBitmap);
+                    printDocument.Print();
+                }
             }
         }
     }

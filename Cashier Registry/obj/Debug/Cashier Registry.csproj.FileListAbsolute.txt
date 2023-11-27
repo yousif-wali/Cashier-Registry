@@ -8,3 +8,37 @@ C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Cashier Registry.
 C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Cashier Registry.pdb
 C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.exe
 C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.pdb
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\BouncyCastle.Cryptography.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Google.Protobuf.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\K4os.Compression.LZ4.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\K4os.Hash.xxHash.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Buffers.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.IO.Pipelines.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Memory.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Numerics.Vectors.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\ZstdSharp.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\BouncyCastle.Cryptography.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Google.Protobuf.pdb
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Google.Protobuf.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\K4os.Compression.LZ4.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\K4os.Hash.xxHash.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Buffers.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.IO.Pipelines.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Memory.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Numerics.Vectors.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.csproj.SuggestedBindingRedirects.cache
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.exe.config
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\obj\Debug\Cashier Registry.csproj.CopyComplete
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Newtonsoft.Json.dll
+C:\C#\Windows Form\Cashier Registry\Cashier Registry\bin\Debug\Newtonsoft.Json.xml
