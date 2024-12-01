@@ -10,7 +10,7 @@ namespace Cashier_Registry
         private static HttpClient Client = new HttpClient();
         private static async Task<Item> LoadInformation(string Id)
         {
-            string apiUrl = $"https://future-dev.online/cashier_registry/information/item/{Id}";
+            string apiUrl = $"https://yousifwali.tech/cashier_registry/information/item/{Id}";
             HttpResponseMessage response = await Client.GetAsync(apiUrl);
 
             if (response.IsSuccessStatusCode)
